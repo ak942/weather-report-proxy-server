@@ -34,7 +34,7 @@ def get_weather():
 
     response = requests.get(
         "https://api.openweathermap.org/data/2.5/weather",
-        params={"lat": lat_query, "lon": lon_query, "appid": weather_key}
+        params={"lat": lat_query, "lon": lon_query, "appid": weather_key, "units": "imperial"}
     )
     return response.json()
 
