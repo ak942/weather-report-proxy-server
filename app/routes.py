@@ -47,7 +47,7 @@ def get_daily_weather():
         return {"message": "must provide lat and lon parameters"}
 
     response = requests.get(
-        "https://api.openweathermap.org/data/2.5/forecast/daily",
+        "https://api.openweathermap.org/data/2.5/forecast",
         params={"lat": lat_query, "lon": lon_query, "appid": weather_key, "units": "imperial", "cnt": 5}
     )
     return response.json()
