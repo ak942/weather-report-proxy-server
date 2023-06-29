@@ -38,3 +38,17 @@ def get_weather():
     )
     return response.json()
 
+@proxy_bp.route("/weather/weekly", methods=["GET"])
+def get_weather():
+    lat_query = request.args.get("lat")
+    lon_query = request.args.get("lon")
+    print(lat_query, lon_query)
+    if not lat_query or not lon_query:
+        return {"message": "must provide lat and lon parameters"}
+
+    response = requests.get(
+        "https://api.openweathermap.org/data/2.5/weather",
+        params={"lat": lat_query, "lon": lon_query, "appid": weather_key, "units": "imperial", "cnt": 5}
+    )
+    return response.json()
+
