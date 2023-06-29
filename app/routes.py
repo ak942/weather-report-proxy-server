@@ -38,8 +38,8 @@ def get_weather():
     )
     return response.json()
 
-@proxy_bp.route("/weather/weekly", methods=["GET"])
-def get_weather():
+@proxy_bp.route("/weather/daily", methods=["GET"])
+def get_daily_weather():
     lat_query = request.args.get("lat")
     lon_query = request.args.get("lon")
     print(lat_query, lon_query)
